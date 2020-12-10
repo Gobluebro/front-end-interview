@@ -21,6 +21,6 @@ Use [PT Sans](https://fonts.google.com/specimen/PT+Sans) as your font.
 
 There is also a few example code html files that you can reference if needed.
 
-Let anyone on the Cincinnati Quotient Product Team if you have any questions.
+Let anyone on the Cincinnati Quotient Product Team know if you have any questions.
 
 **Happy Coding!!**
