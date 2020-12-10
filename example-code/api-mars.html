@@ -1,0 +1,55 @@
+<!-- NASA Mars Rover API Documentation: https://github.com/chrisccerami/mars-photo-api -->
+
+<html>
+  <head>
+    <title>
+      Martians Are Real
+    </title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      #mars-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+      }
+
+      #mars-container div {
+        height: 300px;
+        width: calc(25% - 40px);
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id='mars-container'></div>
+
+    <script>
+      const totalMarsPhotos = 12;
+      fetch('https://mars-photos.herokuapp.com/api/v1/rovers/curiosity/latest_photos')
+      .then(function (response) {
+      	if (response.ok) {
+      		return response.json();
+      	}
+      	return Promise.reject(response);
+      })
+      .then(function (data) {
+        // loop through the response data and add to the #mars-container
+        const mars = data.latest_photos;
+        for (var i = 0; i < totalMarsPhotos; i++) {
+          var marsElement = document.createElement('div');
+          marsElement.style.cssText = `background-image: url("${mars[i].img_src}");`;
+          document.getElementById('mars-container').appendChild(marsElement);
+        }
+      });
+    </script>
+  </body>
+</html>
