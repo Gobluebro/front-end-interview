@@ -3,15 +3,28 @@
     <title>
       Miranda Anderson Influencer Data
     </title>
-    <script type='text/javascript' src='../data/miranda-anderson.json'></script>
   </head>
 
   <body>
     <div id='influencer-data'></div>
 
     <script>
-      var mydata = JSON.parse(data);
-      console.log(mydata);
+      fetch('https://ahalogy-fe-interview-server.herokuapp.com/influencers/8634')
+      .then(function (response) {
+      	if (response.ok) {
+      		return response.json();
+      	}
+      	return Promise.reject(response);
+      })
+      .then(function (data) {
+        for (const [key, value] of Object.entries(data.data)) {
+          if (!Array.isArray(value) && typeof value !== 'object') {
+            var element = document.createElement('div');
+            element.innerHTML = `<strong>${key}</strong>: ${value}`;
+            document.getElementById('influencer-data').appendChild(element);
+          }
+        }
+      });
     </script>
   </body>
 </html>
