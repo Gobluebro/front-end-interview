@@ -1,0 +1,54 @@
+<!-- dog.ceo API Documentation: https://dog.ceo/dog-api/ -->
+
+<html>
+  <head>
+    <title>
+      Dogs
+    </title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      #dogs-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+      }
+
+      #dogs-container div {
+        height: 300px;
+        width: calc(25% - 40px);
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id='dogs-container'></div>
+
+    <script>
+      fetch('https://dog.ceo/api/breeds/image/random/12')
+      .then(function (response) {
+      	if (response.ok) {
+      		return response.json();
+      	}
+      	return Promise.reject(response);
+      })
+      .then(function (data) {
+        // loop through the response data and add to the #dogs-container
+        const dogs = data.message;
+        for (var i = 0; i < dogs.length; i++) {
+          var dogElement = document.createElement('div');
+          dogElement.style.cssText = `background-image: url("${dogs[i]}");`;
+          document.getElementById('dogs-container').appendChild(dogElement);
+        }
+      });
+    </script>
+  </body>
+</html>
