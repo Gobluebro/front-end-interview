@@ -13,15 +13,6 @@ export default {
   data: function() {
     return {
       images: [],
-      randomColors: [
-        "bg-grey-600",
-        "bg-red-600",
-        "bg-green-600",
-        "bg-blue-600",
-        "bg-indigo-600",
-        "bg-pink-600",
-        "bg-purple-600",
-      ],
     };
   },
   async mounted() {
