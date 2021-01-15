@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  props: ["sideBarData"],
   data: function() {
     return {
       images: [],
