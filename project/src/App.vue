@@ -1,11 +1,18 @@
 <template>
   <div>
+    <Header 
+    :firstName="layoutData['first-name']" 
+    :lastName="layoutData['last-name']"  
+    :blogName="layoutData['blog-name']" 
+    >
+    </Header>
     <SideBar sideBarData="layoutData"></SideBar>
     <ImageGrid></ImageGrid>
   </div>
 </template>
 
 <script>
+import Header from "./components/Header.vue";
 import ImageGrid from "./components/ImageGrid.vue";
 import SideBar from "./components/SideBar.vue";
 import axios from "axios";
@@ -13,6 +20,7 @@ import axios from "axios";
 export default {
   name: "App",
   components: {
+    Header,
     ImageGrid,
     SideBar,
   },
@@ -27,7 +35,8 @@ export default {
         "https://ahalogy-fe-interview-server.herokuapp.com/influencers/8634"
       );
       if (dataResponse.status == 200) {
-        this.layoutData = dataResponse.data;
+        console.log(dataResponse.data.data);
+        this.layoutData = dataResponse.data.data;
       }
     } catch (err) {
       console.log(err);
