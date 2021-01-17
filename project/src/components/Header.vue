@@ -1,14 +1,18 @@
 <template>
   <header
-    class="bg-gray-500 text-white text-xl grid grid-rows-3 grid-flow-col gap-2 justify-start items-center"
+    class="bg-gray-500 text-white text-xl flex justify-start items-center"
   >
     <img
       src="../assets/images/miranda-anderson/profile-image.jpg"
-      alt="A Photo of Miranda Anderson"
+      alt="A Photo of {{ firstName }} {{ lastName }}"
       class="row-span-3 mx-8 my-4"
-    /> 
-    <span class="col-span-2 text-gray-400">{{ firstName }} {{ lastName }}</span>
-    <span class="row-span-2 font-light">{{ blogName }}</span>
+    />
+    <div class="flex flex-col">
+      <span class="text-gray-400 "
+        >{{ firstName }} {{ lastName }}</span
+      >
+      <span class="font-light">{{ blogName }}</span>
+    </div>
   </header>
 </template>
 
