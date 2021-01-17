@@ -11,7 +11,7 @@
       <span class="text-gray-400 "
         >{{ firstName }} {{ lastName }}</span
       >
-      <span class="font-light">{{ blogName }}</span>
+      <span class="">{{ blogName }}</span>
     </div>
   </header>
 </template>
