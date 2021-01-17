@@ -19,11 +19,6 @@
 <script>
 export default {
   props: ["firstName", "lastName", "blogName"],
-  data: function() {
-    return {
-      images: [],
-    };
-  },
 };
 </script>
 
