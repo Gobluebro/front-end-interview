@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div v-if="!loading" class="flex flex-col bg-gray-700">
     <Header 
     :firstName="layoutData['first-name']" 
     :lastName="layoutData['last-name']"  
     :blogName="layoutData['blog-name']" 
     >
     </Header>
-    <SideBar sideBarData="layoutData"></SideBar>
+    <SideBar :sideBarData="layoutData"></SideBar>
     <Content 
     :firstName="layoutData['first-name']" 
     :lastName="layoutData['last-name']" 
@@ -31,9 +31,10 @@ export default {
   data: function() {
     return {
       layoutData: {},
+      loading: true,
     };
   },
-  async mounted() {
+  async created() {
     try {
       let dataResponse = await axios.get(
         "https://ahalogy-fe-interview-server.herokuapp.com/influencers/8634"
@@ -41,6 +42,7 @@ export default {
       if (dataResponse.status == 200) {
         console.log(dataResponse.data.data);
         this.layoutData = dataResponse.data.data;
+        this.loading = false;
       }
     } catch (err) {
       console.log(err);
