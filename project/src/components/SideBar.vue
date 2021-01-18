@@ -1,5 +1,5 @@
 <template>
-  <aside class="flex flex-col">
+  <aside class="flex flex-col ml-6 p-8 pr-20">
     <span class="flex flex-row">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -7,7 +7,7 @@
         fill="currentColor"
         width="24px"
         height="24px"
-        class="text-white"
+        class="text-white mr-2"
       >
         <path
           fill-rule="evenodd"
@@ -21,18 +21,18 @@
     </span>
     <span class="text-gray-400">{{ sideBarData["email"] }}</span>
     <a v-bind:href="sideBarData['blog-url']"
-      ><span class="text-white">{{ shortenedURL }}</span></a
+      ><strong><span class="text-gray-300">{{ shortenedURL }}</span></strong></a
     >
-    <SocialIcon :accounts="sideBarData['social-media-accounts']"></SocialIcon>
-    <hr />
+    <SocialIcon class=mt-6 :accounts="sideBarData['social-media-accounts']"></SocialIcon>
+    <hr class="bg-gray-400 my-8" />
     <span class="text-gray-400">FOCUS</span>
-    <span class="text-white">{{ formattedFocusData }}</span>
-    <span class="text-gray-400">RETAILERS FREQUENTED</span>
-    <span class="text-white">{{ formattedRetailers }}</span>
-    <span class="text-gray-400">PERSONAL DETAILS</span>
-    <span class="text-white">{{ relationship }}</span>
-    <span class="text-white">{{ numKids }}</span>
-    <span class="text-white">{{ gender }}</span>
+    <span class="text-gray-300">{{ formattedFocusData }}</span>
+    <span class="text-gray-400 mt-5">RETAILERS FREQUENTED</span>
+    <span class="text-gray-300">{{ formattedRetailers }}</span>
+    <span class="text-gray-400 mt-5">PERSONAL DETAILS</span>
+    <span class="text-gray-300">{{ relationship }}</span>
+    <span class="text-gray-300">{{ numKids }}</span>
+    <span class="text-gray-300">{{ gender }}</span>
   </aside>
 </template>
 
@@ -64,8 +64,8 @@ export default {
   },
   methods: {
     ShortenURL: function(url) {
-      const urlWithoutProtocol = new URL(url).host;
-      return urlWithoutProtocol;
+      const urlWithoutProtocol = new URL(url);
+      return urlWithoutProtocol.hostname + urlWithoutProtocol.pathname;
     },
     ChoicesFormat: function(choices) {
       let addSpaces = choices.replaceAll("_", " ");
@@ -103,4 +103,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+hr {
+  border-top: 3px solid #374151;
+  width: 95%;
+  margin-left: 2.2%;
+}
+aside > *:not(hr) {
+  padding: 5px;
+}
+</style>

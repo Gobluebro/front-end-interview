@@ -8,6 +8,7 @@
       v-bind:alt="account.type"
       height="50px"
       width="50px"
+      class="mx-1.5"
     />
   </div>
 </template>
@@ -21,11 +22,6 @@ import youtube from "../assets/icons/social-youtube.svg";
 
 export default {
   props: ["accounts"],
-  // data: function() {
-  //   return {
-  //     src: "",
-  //   };
-  // },
   methods: {
     IconSetter: function(id) {
       switch (id) {
@@ -48,7 +44,7 @@ export default {
 <style scoped>
 img {
   filter: invert(100%);
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
 }
 </style>

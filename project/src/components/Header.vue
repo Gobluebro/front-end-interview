@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-gray-600 text-white text-xl flex justify-start items-center"
+    class="bg-gray-700 text-white text-xl flex justify-start items-center"
   >
     <img
       src="../assets/images/miranda-anderson/profile-image.jpg"

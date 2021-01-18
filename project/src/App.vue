@@ -1,17 +1,20 @@
 <template>
-  <div v-if="!loading" class="flex flex-col bg-gray-700">
+  <div v-if="!loading" class="flex flex-col bg-gray-800">
     <Header 
     :firstName="layoutData['first-name']" 
     :lastName="layoutData['last-name']"  
     :blogName="layoutData['blog-name']" 
     >
     </Header>
-    <SideBar :sideBarData="layoutData"></SideBar>
-    <Content 
-    :firstName="layoutData['first-name']" 
-    :lastName="layoutData['last-name']" 
-    >
-    </Content>
+    <div class="flex flex-row">
+      <SideBar class="w-1/4" :sideBarData="layoutData"></SideBar>
+      <Content
+      class="w-3/4" 
+      :firstName="layoutData['first-name']" 
+      :lastName="layoutData['last-name']" 
+      >
+      </Content>
+    </div>
   </div>
 </template>
 
