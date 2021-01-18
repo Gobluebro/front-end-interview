@@ -1,38 +1,44 @@
 <template>
-  <div class="">
+  <div class="flex">
     <img
-      v-bind:src="IconSetter(socials.id)"
-      v-bind:href="socials.link"
-      v-bind:alt="socials.type"
+      v-for="account in accounts"
+      :key="account.id"
+      v-bind:src="IconSetter(account.id)"
+      v-bind:href="account.link"
+      v-bind:alt="account.type"
+      height="50px"
+      width="50px"
     />
   </div>
 </template>
 
 <script>
+import pinterest from "../assets/icons/social-pinterest.svg";
+import twitter from "../assets/icons/social-twitter.svg";
+import instagram from "../assets/icons/social-instagram.svg";
+import youtube from "../assets/icons/social-youtube.svg";
+
+
 export default {
-  props: ["socials"],
-  data: function() {
-    return {
-      src: "",
-    };
-  },
+  props: ["accounts"],
+  // data: function() {
+  //   return {
+  //     src: "",
+  //   };
+  // },
   methods: {
     IconSetter: function(id) {
       switch (id) {
         case 0:
-          this.src = "../assets/icons/social-pinterest.svg";
-          break;
+          return pinterest;
         case 1:
-          this.src = "../assets/icons/social-twitter.svg";
-          break;
+          return twitter;
         case 2:
-          this.src = "../assets/icons/social-instagram.svg";
-          break;
+          return instagram;
         case 3:
-          this.src = "../assets/icons/social-youtube.svg";
-          break;
+          return youtube;
         default:
-          break;
+          return "";
       }
     },
   },
@@ -40,7 +46,9 @@ export default {
 </script>
 
 <style scoped>
-svg {
-  fill: white;
+img {
+  filter: invert(100%);
+  width: 50px;
+  height: 50px;
 }
 </style>
