@@ -1,4 +1,6 @@
-# project
+# Quotient Interview
+
+## [Link to live site](https://gobluebro.github.io/front-end-interview/)
 
 ## Project setup
 ```
