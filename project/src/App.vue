@@ -1,19 +1,22 @@
 <template>
-  <div v-if="!loading" class="flex flex-col bg-gray-800">
-    <Header 
-    :firstName="layoutData['first-name']" 
-    :lastName="layoutData['last-name']"  
-    :blogName="layoutData['blog-name']" 
-    >
-    </Header>
-    <div class="flex flex-row">
-      <SideBar class="w-1/4" :sideBarData="layoutData"></SideBar>
-      <Content
-      class="w-3/4" 
-      :firstName="layoutData['first-name']" 
-      :lastName="layoutData['last-name']" 
+  <div>
+    <Loading v-if="loading"></Loading>
+    <div v-if="!loading" class="flex flex-col bg-gray-800">
+      <Header
+        :firstName="layoutData['first-name']"
+        :lastName="layoutData['last-name']"
+        :blogName="layoutData['blog-name']"
       >
-      </Content>
+      </Header>
+      <div class="flex flex-row">
+        <SideBar class="w-1/4" :sideBarData="layoutData"></SideBar>
+        <Content
+          class="w-3/4"
+          :firstName="layoutData['first-name']"
+          :lastName="layoutData['last-name']"
+        >
+        </Content>
+      </div>
     </div>
   </div>
 </template>
@@ -22,6 +25,7 @@
 import Header from "./components/Header.vue";
 import Content from "./components/Content.vue";
 import SideBar from "./components/SideBar.vue";
+import Loading from "./components/Loading.vue";
 import axios from "axios";
 
 export default {
@@ -30,6 +34,7 @@ export default {
     Header,
     Content,
     SideBar,
+    Loading,
   },
   data: function() {
     return {
@@ -43,7 +48,6 @@ export default {
         "https://ahalogy-fe-interview-server.herokuapp.com/influencers/8634"
       );
       if (dataResponse.status == 200) {
-        console.log(dataResponse.data.data);
         this.layoutData = dataResponse.data.data;
         this.loading = false;
       }
