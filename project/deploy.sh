@@ -4,10 +4,10 @@
 set -e
 
 # build
-npm run build
+npx vue-cli-service build
 
 # navigate into the build output directory
-cd project/dist
+cd dist
 
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
