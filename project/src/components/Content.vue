@@ -1,5 +1,5 @@
 <template>
-  <main class="text-white p-2 pl-8">
+  <main class="text-white sm:mx-20 md:mr-16 p-2">
     <span class="text-2xl tracking-widest inline-block mt-5">STORY COLLECTION</span>
     <br />
     <span class="text-gray-500 text-xl inline-block mt-3 mb-8">All stores by {{ firstName }} {{ lastName }}</span>

@@ -8,10 +8,10 @@
         :blogName="layoutData['blog-name']"
       >
       </Header>
-      <div class="flex flex-row">
-        <SideBar class="w-1/4" :sideBarData="layoutData"></SideBar>
+      <div class="flex real-smol-side-and-content-combo lg:flex-row">
+        <SideBar class="real-smol-sidebar lg:order-first lg:w-1/4" :sideBarData="layoutData"></SideBar>
         <Content
-          class="w-3/4"
+          class="real-smol-content lg:order-last lg:w-3/4"
           :firstName="layoutData['first-name']"
           :lastName="layoutData['last-name']"
         >
@@ -93,5 +93,22 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .real-smol-side-and-content-combo{
+      flex-direction: column;
+    }
+    .real-smol-sidebar{
+      width:100%;
+      order: 9999;
+    }
+    .real-smol-content{
+      width:100%;
+      order: -9999;
+    }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <aside class="flex flex-col ml-6 p-8 pr-20">
+  <aside class="flex flex-col lg:ml-6 p-8 pr-20">
     <span class="flex flex-row">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@
       ><strong><span class="text-gray-300">{{ shortenedURL }}</span></strong></a
     >
     <SocialIcon class=mt-6 :accounts="sideBarData['social-media-accounts']"></SocialIcon>
-    <hr class="bg-gray-400 my-8" />
+    <hr class="bg-gray-400 my-8 sm:w-48 lg:w-72 xl:w-80" />
     <span class="text-gray-400">FOCUS</span>
     <span class="text-gray-300">{{ formattedFocusData }}</span>
     <span class="text-gray-400 mt-5">RETAILERS FREQUENTED</span>
@@ -106,7 +106,7 @@ export default {
 <style scoped>
 hr {
   border-top: 3px solid #374151;
-  width: 95%;
+  /* width: 95%; */
   margin-left: 2.2%;
 }
 aside > *:not(hr) {
