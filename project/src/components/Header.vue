@@ -5,12 +5,12 @@
     <img
       src="../assets/images/miranda-anderson/profile-image.jpg"
       alt="A Photo of {{ firstName }} {{ lastName }}"
-      class="row-span-3 mx-8 my-4"
+      class="mx-8 my-4 rounded-full"
+      width="100"
+      height="100"
     />
     <div class="flex flex-col">
-      <span class="text-gray-400 "
-        >{{ firstName }} {{ lastName }}</span
-      >
+      <span class="text-gray-400 ">{{ firstName }} {{ lastName }}</span>
       <span class="">{{ blogName }}</span>
     </div>
   </header>
@@ -23,11 +23,6 @@ export default {
 </script>
 
 <style scoped>
-img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-}
 header {
   margin-top: -60px;
 }
